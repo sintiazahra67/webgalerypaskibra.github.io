@@ -92,3 +92,9 @@
     object-position: left;
     border-radius: 20px;
 }
+.red {
+    color: red;
+  }
+.yellow{
+    color:yellow;
+}

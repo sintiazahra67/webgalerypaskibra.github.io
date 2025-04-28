@@ -35,6 +35,36 @@ class FrontController extends Controller
 
        $authors = Author::all();
 
+    $aboutus_posts = Post::whereHas('category', function($query){
+    $query->where('judul', 'About Us');
+    })
+    ->where('is_featured', 'not_featured')
+    ->latest()
+    ->take(6)
+    ->get();
+
+    $aboutus_featured_posts = Post::whereHas('category', function($query){
+        $query->where('judul', 'About Us');
+    })
+    ->where('is_featured', 'featured')
+    ->inRandomOrder()
+    ->first();
+
+    $championship_posts = Post::whereHas('category', function($query){
+        $query->where('judul', 'Championship');
+    })
+    ->where('is_featured', 'not_featured')
+    ->latest()
+    ->take(6)
+    ->get();
+
+    $championship_featured_posts = Post::whereHas('category', function($query){
+        $query->where('judul', 'Championship');
+    })
+    ->where('is_featured', 'featured')
+    ->inRandomOrder()
+    ->first();
+
     $activity_posts = Post::whereHas('category', function($query){
         $query->where('judul', 'Activity');
     })
@@ -50,20 +80,8 @@ class FrontController extends Controller
     ->inRandomOrder()
     ->first();
 
-    $aboutus_posts = Post::whereHas('category', function($query){
-        $query->where('judul', 'About Us');
-    })
-    ->where('is_featured', 'not_featured')
-    ->latest()
-    ->take(6)
-    ->get();
 
-    $aboutus_featured_posts = Post::whereHas('category', function($query){
-        $query->where('judul', 'About Us');
-    })
-    ->where('is_featured', 'featured')
-    ->inRandomOrder()
-    ->first();
+
 
     $prestasi_posts = Post::whereHas('category', function($query){
         $query->where('judul', 'Prestasi');
@@ -74,12 +92,14 @@ class FrontController extends Controller
     ->get();
 
     return view('front.index', compact(
-        'activity_featured_posts',
         'aboutus_featured_posts',
         'aboutus_posts',
+        'championship_featured_posts',
+        'championship_posts',
+        'activity_featured_posts',
+        'activity_posts',
         'categories',
         'authors',
-        'activity_posts',
         'posts',
         'featured_posts',
         'banner_advertisements',

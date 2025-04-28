@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link href="{{ 'output.css' }}" rel="stylesheet" />
-	<link href="{{ 'main.css' }}" rel="stylesheet" />
+	<link href="{{ asset('output.css') }}" rel="stylesheet" />
+    <link href="{{ asset('main.css') }}" rel="stylesheet" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
@@ -17,7 +18,7 @@
 <body class="font-[Poppins]">
     <x-navbar/>
     <nav id="Category" class="max-w-[1130px] mx-auto flex justify-center items-center gap-4 mt-[30px]">
-		
+
         @foreach ($categories as $item_category)
         <a href="{{ route('front.category', $item_category->slug) }}" class="rounded-full p-[12px_22px] flex gap-[10px] font-semibold transition-all duration-300 border border-[#EEF0F7] hover:ring-2 hover:ring-[#FF6B18]">
             <div class="flex w-6 h-6 shrink-0">
@@ -47,7 +48,7 @@
 			</div>
 		</div>
 		<div class="w-full h-[500px] flex shrink-0 overflow-hidden">
-			<img src="{{Storage::url($post->thumbnail) }}" class="object-cover w-full h-full" alt="cover thumbnail">
+			<img src="{{Storage::url($post->thumbnail)}}" class="object-cover w-full h-full" alt="cover thumbnail">
 		</div>
 	</header>
 	<section id="Article-container" class="max-w-[1130px] mx-auto flex gap-20 mt-[50px]">
@@ -131,7 +132,7 @@
             @empty
             <p>Kosong</p>
             @endforelse
-            
+
 			</div>
 		</div>
 	</section>

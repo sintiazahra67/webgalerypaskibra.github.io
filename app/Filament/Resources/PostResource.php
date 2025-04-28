@@ -53,7 +53,7 @@ class PostResource extends Resource
                     ->required()
                     ->image(),
                 Forms\Components\Select::make('category_id')
-                    ->relationship('category', 'judul')
+                    ->relationship('category', 'title')
                     ->searchable()
                     ->preload()
                     ->required(),
@@ -80,7 +80,7 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('thumbnail'),
-                Tables\Columns\TextColumn::make('category.judul')
+                Tables\Columns\TextColumn::make('category.title')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('author.username')
                     ->sortable(),

@@ -19,14 +19,14 @@
             <div class="flex w-6 h-6 shrink-0">
                 <img src="{{ Storage::url($item_category->icon) }}" alt="icon" />
             </div>
-            <span>{{ $item_category->judul }}</span>
+            <span>{{ $item_category->title}}</span>
         </a>
         @endforeach
     </nav>
 	<section id="Category-result" class="max-w-[1130px] mx-auto flex items-center flex-col gap-[30px] mt-[70px]">
 		<h1 class="text-4xl leading-[45px] font-bold text-center">
 			Explore Our <br />
-			{{ $category->judul }} News
+			{{ $category->title}}news
 		</h1>
 		<div id="search-cards" class="grid grid-cols-3 gap-[30px]">
             @forelse ($category->posts as $post)
@@ -36,13 +36,13 @@
 					<div class="thumbnail-container h-[200px] relative rounded-[20px] overflow-hidden">
 						<div
 							class="badge absolute left-5 top-5 bottom-auto right-auto flex p-[8px_18px] bg-white rounded-[50px]">
-							<p class="text-xs leading-[18px] font-bold uppercase">{{ $post->category->judul }}</p>
+							<p class="text-xs leading-[18px] font-bold uppercase">{{ $post->category->title}}</p>
 						</div>
 						<img src="{{ Storage::url($post->thumbnail) }}" alt="thumbnail photo"
 							class="object-cover w-full h-full" />
 					</div>
 					<div class="flex flex-col gap-[6px]">
-						<h3 class="text-lg leading-[27px] font-bold">{{ substr($post->judul, 0, 70) }}{{ strlen($post->judul) > 70 ? '...' :''  }}</h3>
+						<h3 class="text-lg leading-[27px] font-bold">{{ substr($post->judul, 0, 70) }}{{ strlen($post->title) > 70 ? '...' :''  }}</h3>
 						<p class="text-sm leading-[21px] text-[#A3A6AE]">{{ $post->created_at->format('M d, Y') }}</p>
 					</div>
 				</div>

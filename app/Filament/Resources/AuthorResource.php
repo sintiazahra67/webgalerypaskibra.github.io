@@ -31,6 +31,10 @@ class AuthorResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('occupation')
                     ->required()
+                    ->maxLength(255)
+                    ->columnSpanFull(),
+                Forms\Components\TextInput::make('pekerjaan')
+                    ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('avatar')
                     ->required()
@@ -47,6 +51,8 @@ class AuthorResource extends Resource
                 Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('occupation')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('pekerjaan')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('avatar'),
                 Tables\Columns\TextColumn::make('deleted_at')
@@ -68,6 +74,7 @@ class AuthorResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
+            
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

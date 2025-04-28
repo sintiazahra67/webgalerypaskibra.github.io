@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('slug')->unique();
             $table->string('occupation');
+            $table->string('pekerjaan');
             $table->string('avatar');
             $table->softDeletes();
             $table->timestamps();

@@ -13,14 +13,15 @@ class Category extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'judul',
+        'title',
         'slug',
+        'description',
         'icon'
     ];
 
     public function setNameAttribute($value)
     {
-        $this->attributes['judul'] = $value;
+        $this->attributes['title'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
 
